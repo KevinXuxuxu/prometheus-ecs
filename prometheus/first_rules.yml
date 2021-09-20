@@ -1,0 +1,24 @@
+groups:
+- name: service_availability
+  rules:
+  - alert: FolioProbeFailed
+    expr: probe_success{instance="http://luyueheng.com"} == 0
+    for: 1m
+    labels:
+      severity: page
+    annotations:
+      summary: Folio probe failed
+  - alert: GCNProbeFailed
+    expr: probe_success{instance="http://luyueheng.com:5000"} == 0
+    for: 1m
+    labels:
+      severity: page
+    annotations:
+      summary: GCN probe failed
+  - alert: V2RayProbeFailed
+    expr: probe_http_status_code{instance="https://t.fzxu.me/register"} != 404
+    for: 1m
+    labels:
+      severity: page
+    annotations:
+      summary: V2Ray probe failed
