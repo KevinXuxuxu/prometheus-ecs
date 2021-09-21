@@ -1,0 +1,17 @@
+route:
+  group_by: ['alertname']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  receiver: 'slack_alert'
+receivers:
+- name: slack_alert
+  slack_configs:
+  - api_url: https://hooks.slack.com/services/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
+    channel: '#alert'
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']
