@@ -1,3 +1,4 @@
+# This script is for local testing
 import os
 import subprocess
 

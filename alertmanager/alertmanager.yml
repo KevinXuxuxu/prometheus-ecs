@@ -7,7 +7,7 @@ route:
 receivers:
 - name: slack_alert
   slack_configs:
-  - api_url: https://hooks.slack.com/services/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
+  - api_url: WEBHOOK_URL
     channel: '#alert'
 inhibit_rules:
   - source_match:
