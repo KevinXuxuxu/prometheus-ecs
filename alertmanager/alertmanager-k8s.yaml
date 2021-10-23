@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alertmanager
+  labels:
+    app: alertmanager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alertmanager
+  template:
+    metadata:
+      labels:
+        app: alertmanager
+    spec:
+      containers:
+      - name: alertmanager
+        image: registry.hub.docker.com/fzxu/alertmanager
+        ports:
+        - containerPort: 9093
+        env:
+        - name: WEBHOOK_URL
+          value: ****

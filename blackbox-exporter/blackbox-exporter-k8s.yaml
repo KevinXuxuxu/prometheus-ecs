@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blackbox-exporter
+  labels:
+    app: blackbox-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blackbox-exporter
+  template:
+    metadata:
+      labels:
+        app: blackbox-exporter
+    spec:
+      containers:
+      - name: blackbox-exporter
+        image: registry.hub.docker.com/prom/blackbox-exporter
+        ports:
+        - containerPort: 9115
