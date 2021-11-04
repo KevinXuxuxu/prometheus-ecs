@@ -31,7 +31,7 @@ scrape_configs:
       - targets:
         - https://t.fzxu.me/register
         - http://luyueheng.com:5000
-        - http://luyueheng.com
+        - http://luyueheng.com/visit/proj_index
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target

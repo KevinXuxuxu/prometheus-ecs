@@ -2,7 +2,7 @@ groups:
 - name: service_availability
   rules:
   - alert: FolioProbeFailed
-    expr: probe_success{instance="http://luyueheng.com"} == 0
+    expr: probe_success{instance="http://luyueheng.com/visit/proj_index"} == 0
     for: 1m
     labels:
       severity: page
